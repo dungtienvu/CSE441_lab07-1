@@ -22,4 +22,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    private class child_activity {
+    }
 }

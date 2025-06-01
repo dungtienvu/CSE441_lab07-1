@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ChildActivity extends AppCompatActivity {
+public class ChildActivity<child_activity> extends AppCompatActivity {
 
     Button btnBackToMain;
     TextView txtChild;
@@ -23,9 +24,11 @@ public class ChildActivity extends AppCompatActivity {
         txtChild = findViewById(R.id.textView2);
         txtChild.setText("This is Child Activity"); // Đặt text cho TextView (nếu bạn muốn)
 
-        btnBackToMain.setOnClickListener(v -> {
-            Intent intent = new Intent(child_activity.this, MainActivity.class);
-            startActivity(intent);
-        });
+        btnBackToMain.setOnClickListener(this::onClick);
+    }
+
+    private void onClick(View v) {
+        Intent intent = new Intent(MainActivity.class, child_activity.this);
+        startActivity(intent);
     }
 }
